@@ -11,6 +11,18 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      keyframes: {
+        click: {
+          '0%': { transform: 'rotate(var(--rotation)) translateX(80px)' },
+          '50%': { 
+            transform: 'rotate(var(--rotation)) translateX(65px) scale(0.9)'
+          },
+          '100%': { transform: 'rotate(var(--rotation)) translateX(80px)' }
+        }
+      },
+      animation: {
+        'click': 'click 1s infinite'
+      }
     },
   },
   plugins: [],
