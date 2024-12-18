@@ -233,8 +233,35 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="text-amber-600 mt-8 text-center">
-        Click the cookie to earn more cookies!
+      <footer className="text-amber-600 mt-8">
+        <p className="text-center mb-4">Click the cookie to earn more cookies!</p>
+        
+        {/* New purchased upgrades section */}
+        <div className="max-w-3xl mx-auto bg-amber-100 rounded-lg p-4">
+          <h2 className="text-xl font-bold text-amber-800 mb-3">Purchased Upgrades</h2>
+          <div className="flex flex-wrap gap-3">
+            {Object.entries(upgrades)
+              .filter(([_, upgrade]) => upgrade.count > 0)
+              .map(([key, upgrade]) => (
+                <div 
+                  key={key}
+                  className="flex items-center bg-amber-50 rounded-lg p-2 shadow-sm"
+                >
+                  <Image
+                    src={upgrade.image}
+                    alt={upgrade.name}
+                    width={32}
+                    height={32}
+                    className="mr-2"
+                  />
+                  <div>
+                    <p className="font-medium text-amber-900">{upgrade.name}</p>
+                    <p className="text-sm text-amber-700">Owned: {upgrade.count}</p>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
       </footer>
     </div>
   );
